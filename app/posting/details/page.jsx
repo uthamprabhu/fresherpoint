@@ -132,7 +132,13 @@ const DetailsStep = () => {
       </div>
 
       {/* Next Button */}
-      <div className="w-full flex justify-end">
+      <div className="w-full flex gap-4 justify-end">
+        <button
+          onClick={() => router.push("/posting/basic")}
+          className="bg-gray-100 border border-gray-300 text-gray-800 px-4 py-2 rounded text-sm"
+        >
+          Back
+        </button>
         <button
           onClick={() => router.push("/posting/preferences")}
           className="px-8 py-3 bg-[#1A1AFF] text-white rounded-lg font-semibold hover:bg-[#0000cc] transition-all"

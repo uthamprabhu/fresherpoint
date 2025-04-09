@@ -67,11 +67,14 @@ export default function PreferencesStep() {
 
       {/* Buttons */}
       <div className="flex justify-between items-center">
-        <button className="text-gray-400 border border-gray-200 rounded px-4 py-2 text-sm">
+        <button className="text-sm underline text-gray-500 hover:text-gray-700">
           Save as Draft
         </button>
         <div className="flex gap-2">
-          <button className="bg-gray-100 border border-gray-300 text-gray-800 px-4 py-2 rounded text-sm">
+          <button
+            onClick={() => router.push("/posting/details")}
+            className="bg-gray-100 border border-gray-300 text-gray-800 px-4 py-2 rounded text-sm"
+          >
             Back
           </button>
           <button

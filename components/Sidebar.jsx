@@ -1,11 +1,17 @@
 'use client'
 
 import React, { useState } from 'react'
-import Link from "next/link";
 import Image from "next/image";
+import { useRouter, usePathname } from 'next/navigation';
+import SidebarLink from './SidebarLink';
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const router = useRouter()
+
+    const pathname = usePathname();
+
+    const isActive = pathname === '/';
 
     return (
         <aside
@@ -38,51 +44,12 @@ const Sidebar = () => {
             </div>
             <nav className="mt-4 flex flex-col justify-center items-start gap-5">
 
-                <div className="flex gap-2 p-3 w-full hover:bg-[#f2f2f2] rounded-2xl cursor-pointer">
-                    <Image
-                        src="/home.png"
-                        width={24}
-                        height={24}
-                        alt="home"
-                        title="home"
-                    />
-                    <span className="text-sidebar font-semibold text-[16px]">Home</span>
-                </div>
+                <SidebarLink href="/" icon="/home.png" label="Home" />
+                <SidebarLink href="/profile" icon="/profile.png" label="profile" />
+                <SidebarLink href="/inbox" icon="/inbox.png" label="inbox" />
+                <SidebarLink href="/feed" icon="/feed.png" label="feed" />
 
-                <div className="flex gap-2 p-3 w-full hover:bg-[#f2f2f2] rounded-2xl">
-                    <Image
-                        src="/profile.png"
-                        width={24}
-                        height={24}
-                        alt="profile"
-                        title="my profile"
-                    />
-                    <span className="text-sidebar font-semibold text-[16px]">My Profile</span>
-                </div>
-
-                <div className="flex gap-2 p-3 w-full hover:bg-[#f2f2f2] rounded-2xl">
-                    <Image
-                        src="/inbox.png"
-                        width={24}
-                        height={24}
-                        alt="inbox"
-                        title="inbox"
-                    />
-                    <span className="text-sidebar font-semibold text-[16px]">Inbox</span>
-                </div>
-
-                <div className="flex gap-2 p-3 w-full hover:bg-[#f2f2f2] rounded-2xl">
-                    <Image
-                        src="/feed.png"
-                        width={24}
-                        height={24}
-                        alt="feed"
-                        title="feed"
-                    />
-                    <span className="text-sidebar font-semibold text-[16px]">Feed</span>
-                </div>
-
-                <div className="flex justify-between items-center p-3 w-full hover:bg-[#f2f2f2] rounded-2xl">
+                <div className="flex justify-between items-center p-3 w-full hover:bg-[#f2f2f2] rounded-2xl cursor-pointer">
                     <div className="flex gap-2">
                         <Image
                             src="/student_engage.png"
@@ -101,7 +68,7 @@ const Sidebar = () => {
                     />
                 </div>
 
-                <div className="w-full">
+                <div className="w-full cursor-pointer">
                     {/* Main button */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
@@ -115,7 +82,7 @@ const Sidebar = () => {
                                 alt="plus"
                                 className="invert brightness-35 opacity-100 transition-all duration-200 group-focus:invert group-focus:brightness-0 group-focus:contrast-200"
                             />
-                            <span className="text-sidebar text-[16px] font-semibold">Posting</span>
+                            <span className="text-sidebar text-[16px] font-semibold group-focus:invert group-focus:brightness-0 group-focus:contrast-200">Posting</span>
                         </div>
                         <Image
                             src="/arrow.png"
@@ -129,7 +96,11 @@ const Sidebar = () => {
                     {/* Dropdown items */}
                     {isOpen && (
                         <div className="mt-1 bg-white rounded-2xl shadow-sm overflow-hidden text-sm">
-                            <div className="px-4 py-2 font-semibold text-black bg-[#f2f2f2]">Jobs</div>
+                            <div className="px-4 py-2 font-semibold text-black bg-[#f2f2f2]"
+                                onClick={() => router.push('/posting')}
+                            >
+                                Jobs
+                            </div>
                             <div className="px-4 py-2 text-gray-700 hover:bg-[#f2f2f2] cursor-pointer">
                                 Campus Recruitment
                             </div>
@@ -140,7 +111,7 @@ const Sidebar = () => {
                     )}
                 </div>
 
-                <div className="flex gap-2 p-3 w-full hover:bg-[#f2f2f2] rounded-2xl">
+                <div className="flex gap-2 p-3 w-full hover:bg-[#f2f2f2] rounded-2xl cursor-pointer">
                     <Image
                         src="/events.png"
                         width={24}
@@ -151,7 +122,7 @@ const Sidebar = () => {
                     <span className="text-sidebar font-semibold text-[16px]">Events</span>
                 </div>
 
-                <div className="flex gap-2 p-3 w-full hover:bg-[#f2f2f2] rounded-2xl">
+                <div className="flex gap-2 p-3 w-full hover:bg-[#f2f2f2] rounded-2xl cursor-pointer">
                     <Image
                         src="/network.png"
                         width={24}
@@ -162,7 +133,7 @@ const Sidebar = () => {
                     <span className="text-sidebar font-semibold text-[16px]">Network</span>
                 </div>
 
-                <div className="flex gap-2 p-3 w-full hover:bg-[#f2f2f2] rounded-2xl">
+                <div className="flex gap-2 p-3 w-full hover:bg-[#f2f2f2] rounded-2xl cursor-pointer">
                     <Image
                         src="/analytics.png"
                         width={24}
@@ -173,7 +144,7 @@ const Sidebar = () => {
                     <span className="text-sidebar font-semibold text-[16px]">Analytics</span>
                 </div>
 
-                <div className="flex gap-2 p-3 w-full hover:bg-[#f2f2f2] rounded-2xl">
+                <div className="flex gap-2 p-3 w-full hover:bg-[#f2f2f2] rounded-2xl cursor-pointer">
                     <Image
                         src="/survey.png"
                         width={24}
