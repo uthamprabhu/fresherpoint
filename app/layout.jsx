@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
+import RouteName from "@/components/RouteName";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -17,19 +19,132 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${roboto.variable} antialiased`}>
-        <div className="flex min-h-screen">
+        <div className="bg-secondary p-6 flex justify-between items-center sticky top-0">
+          <div className="flex justify-center items-center space-x-2">
+            <div className="bg-blueish rounded-sm w-10 h-10"></div>
+            <div className="bg-[#d9d9d9] font-semibold text-[16px] text-[#8c8c8c] rounded-sm w-20 h-10 flex justify-start items-center pl-2">Logo</div>
+          </div>
+          <RouteName />
+          <div className="w-[600px] flex justify-between items-center">
+            <div className="flex items-center bg-background rounded-[6px] px-3 py-2 w-[360px] h-[45px]">
+              <Image
+                src="/search.png"
+                width={24}
+                height={24}
+                alt="search"
+                title="search"
+                className="mr-2"
+              />
+              <input
+                type="text"
+                placeholder="Search"
+                className="bg-transparent outline-none placeholder:text-gray-400 text-sm"
+              />
+            </div>
+
+            <div className="relative w-fit">
+              <Image
+                src="/notification.png"
+                width={30}
+                height={30}
+                alt="notification"
+                title="notification"
+              />
+              <span className="absolute top-0 right-0 bg-blueish text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center translate-x-1/2 -translate-y-1/2">
+                5
+              </span>
+            </div>
+
+            <div className="relative w-fit">
+              <Image
+                src="/chat.png"
+                width={30}
+                height={30}
+                alt="messages"
+                title="messages"
+              />
+              <span className="absolute top-0 right-0 bg-blueish text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center translate-x-1/2 -translate-y-1/2">
+                5
+              </span>
+            </div>
+
+            <div>
+              <Image
+                src="/calendar.png"
+                width={30}
+                height={30}
+                alt="calendar"
+                title="calendar"
+              />
+            </div>
+            <div className="flex justify-center items-center">
+              <Image
+                src="/profile-pic.png"
+                width={30}
+                height={30}
+                alt="profile picture"
+                title="profile"
+              />
+              <Image
+                src="/profile_arrow.png"
+                width={18}
+                height={18}
+                alt="profile arrow"
+                title="profile"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="flex">
           {/* Sidebar */}
-          <aside className="w-64 bg-gray-900 text-white p-4 space-y-4">
-            <h2 className="text-xl font-bold">YourApp</h2>
-            <nav className="mt-4 space-y-2">
-              <Link href="/">🏠 Home</Link><br />
-              <Link href="/posting">📄 Posting</Link>
+          <aside
+            className="w-[240px] fixed top-[92px] left-0 h-[calc(100vh-64px)] bg-secondary text-sidebar p-4 space-y-4"
+          >
+            <div className="rounded-[10px] bg-background p-3">
+              <div className="flex justify-start items-center">
+                <Image
+                  src='/google_logo.png'
+                  width={42}
+                  height={42}
+                  alt="company logo"
+                />
+                <span className="ml-2 font-semibold text-[16px] text-heading">Google</span>
+              </div>
+              <div className="flex justify-between items-center pt-3">
+                <div className="flex flex-col justify-center items-center">
+                  <div className="text-subheading font-semibold text-[12px]">567</div>
+                  <div className="text-sidebar font-normal text-[10px]">Followers</div>
+                </div>
+                <div className="flex flex-col justify-center items-center">
+                  <div className="text-subheading font-semibold text-[12px]">34</div>
+                  <div className="text-sidebar font-normal text-[10px]">Following</div>
+                </div>
+                <div className="flex flex-col justify-center items-center">
+                  <div className="text-subheading font-semibold text-[12px]">12</div>
+                  <div className="text-sidebar font-normal text-[10px]">Post</div>
+                </div>
+              </div>
+            </div>
+            <nav className="mt-4 flex flex-col justify-center items-start gap-5 bg-red-100">
+              <div className="flex gap-2 border-2 p-3 w-full">
+                <Image
+                  src="/home.png"
+                  width={24}
+                  height={24}
+                  alt="home"
+                  title="home"
+                />
+                <span className="text-sidebar font-semibold text-[16px]">Home</span>
+              </div>
             </nav>
           </aside>
 
           {/* Main content (acts like <Outlet/>) */}
-          <main className="flex-1 p-6 bg-gray-100">{children}</main>
+          <main className="ml-[240px] pt-[20px] flex-1 p-6 bg-gray-100 min-h-screen">
+            {children}
+          </main>
         </div>
+
       </body>
     </html>
   );
