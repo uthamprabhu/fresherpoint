@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 import RouteName from "@/components/RouteName";
+import Sidebar from "@/components/Sidebar";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -97,47 +98,7 @@ export default function RootLayout({ children }) {
         </div>
         <div className="flex">
           {/* Sidebar */}
-          <aside
-            className="w-[240px] fixed top-[92px] left-0 h-[calc(100vh-64px)] bg-secondary text-sidebar p-4 space-y-4"
-          >
-            <div className="rounded-[10px] bg-background p-3">
-              <div className="flex justify-start items-center">
-                <Image
-                  src='/google_logo.png'
-                  width={42}
-                  height={42}
-                  alt="company logo"
-                />
-                <span className="ml-2 font-semibold text-[16px] text-heading">Google</span>
-              </div>
-              <div className="flex justify-between items-center pt-3">
-                <div className="flex flex-col justify-center items-center">
-                  <div className="text-subheading font-semibold text-[12px]">567</div>
-                  <div className="text-sidebar font-normal text-[10px]">Followers</div>
-                </div>
-                <div className="flex flex-col justify-center items-center">
-                  <div className="text-subheading font-semibold text-[12px]">34</div>
-                  <div className="text-sidebar font-normal text-[10px]">Following</div>
-                </div>
-                <div className="flex flex-col justify-center items-center">
-                  <div className="text-subheading font-semibold text-[12px]">12</div>
-                  <div className="text-sidebar font-normal text-[10px]">Post</div>
-                </div>
-              </div>
-            </div>
-            <nav className="mt-4 flex flex-col justify-center items-start gap-5 bg-red-100">
-              <div className="flex gap-2 border-2 p-3 w-full">
-                <Image
-                  src="/home.png"
-                  width={24}
-                  height={24}
-                  alt="home"
-                  title="home"
-                />
-                <span className="text-sidebar font-semibold text-[16px]">Home</span>
-              </div>
-            </nav>
-          </aside>
+          <Sidebar />
 
           {/* Main content (acts like <Outlet/>) */}
           <main className="ml-[240px] pt-[20px] flex-1 p-6 bg-gray-100 min-h-screen">

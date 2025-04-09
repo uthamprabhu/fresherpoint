@@ -59,7 +59,7 @@ export default function PostingLayout({ children }) {
               {index < steps.length - 1 && (
                 <div
                   className={clsx(
-                    "w-8 h-0.5 mx-2",
+                    "w-10 h-0.5 mx-4",
                     index < currentIndex ? "bg-blue-600" : "bg-gray-300"
                   )}
                 ></div>
