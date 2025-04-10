@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function JobPreview() {
@@ -14,7 +15,7 @@ export default function JobPreview() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-4 py-6 bg-white rounded-xl">
+    <div className="w-full max-w-3xl mx-auto px-5 py-6 bg-white rounded-xl">
 
       {/* Header */}
       <div className="flex items-center justify-between mb-4 pb-3">
@@ -74,34 +75,47 @@ export default function JobPreview() {
       </div>
 
       {/* Key Responsibilities */}
-      <div>
+      <div className="pl-4 border-t border-t-placeholder border-b border-b-placeholder py-5">
         <h3 className="text-sm font-semibold mb-3">Key Responsibilities</h3>
-        <ol className="list-decimal list-inside text-sm text-gray-700 space-y-2">
+        <ol className="list-decimal list-inside text-sm text-gray-700 space-y-3">
           <li>
-            <strong>User Research & Analysis:</strong> Conduct user research, interviews, and surveys...
+            <strong>User Research & Analysis:</strong> Conduct user research, interviews, and surveys to gather insights. Analyse user behaviour and feedback to shape design decisions.
           </li>
           <li>
-            <strong>Wireframing & Prototyping:</strong> Create wireframes, prototypes, and user flows...
+            <strong>Wireframing & Prototyping:</strong> Create wireframes, prototypes, and user flows that translate business goals into intuitive user experiences.
           </li>
           <li>
-            <strong>UI Design:</strong> Design user interfaces that are aesthetically pleasing and functional...
+            <strong>UI Design:</strong> Design user interfaces that are both aesthetically pleasing and functional, ensuring consistency across all platforms (web, mobile, tablet).
           </li>
           <li>
-            <strong>Interaction Design:</strong> Define how users will interact with the product...
+            <strong>Interaction Design:</strong> Define how users will interact with the product, including animations, transitions and micro-interactions to enhance user experience.
           </li>
           <li>
-            <strong>Collaboration:</strong> Work closely with product managers, developers, and marketing teams...
+            <strong>Collaboration:</strong> Work closely with product managers, developers, and marketing teams to ensure design solutions align with business objectives and technical requirements.
           </li>
           <li>
-            <strong>Usability Testing:</strong> Plan and execute usability tests...
+            <strong>Usability Testing:</strong> Plan and execute usability tests to validate design solutions, iterate based on user feedback, and improve overall user satisfaction.
           </li>
           <li>
-            <strong>Design Systems:</strong> Create and maintain design systems, style guides...
+            <strong>Design Systems:</strong> Create and maintain design systems, style guides, and reusable components to ensure consistency across products and platforms. 
           </li>
           <li>
-            <strong>Stay Updated on Trends:</strong> Stay up-to-date with industry trends and best practices...
+            <strong>Stay Updated on Trends:</strong> Stay up-to-date with industry trends, emerging technologies, and best practices in UI/UX design, applying them to your work.
           </li>
         </ol>
+      </div>
+
+      {/* intercative jd */}
+
+      <div className="pl-4 pt-4 flex flex-col justify-center items-start">
+        <div className="font-bold text-[16px] text-heading pb-3">Interactive JD</div>
+          <Image
+            src='/interactive_jd.png'
+            width={670}
+            height={320}
+            alt="interactive jd"
+            title="interactive jd"
+          />
       </div>
 
       {/* Next Button */}
