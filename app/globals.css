@@ -14,6 +14,17 @@
   --color-secondary: #f9f9f9;
 }
 
+@layer utilities {
+  .input-heading {
+    @apply text-[16px] font-medium text-subheading;
+  }
+
+  .input-box{
+    @apply border border-placeholder placeholder:text-placeholder rounded-[6px];
+  }
+}
+
+
 body {
   background: var(--background);
   font-family: var(--font-roboto);
@@ -23,8 +34,9 @@ body {
 aside {
   height: calc(100vh - 92px);
   overflow-y: hidden;
-  scrollbar-gutter: stable; /* Prevents content from shifting */
-  
+  scrollbar-gutter: stable;
+  /* Prevents content from shifting */
+
   /* Firefox */
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
@@ -52,7 +64,8 @@ aside::-webkit-scrollbar-thumb {
 }
 
 aside:hover::-webkit-scrollbar-thumb {
-  background-color: #dedcdc; /* Light gray like YouTube */
+  background-color: #dedcdc;
+  /* Light gray like YouTube */
 }
 
 aside:hover::-webkit-scrollbar-track {

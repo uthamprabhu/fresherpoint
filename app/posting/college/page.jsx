@@ -5,72 +5,69 @@ import { useRouter } from "next/navigation";
 export default function CollegeStep() {
   const router = useRouter();
 
+  const handleDraft = () => {
+    alert('draft saved successfully!')
+  }
+
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow">
-      <h2 className="text-xl font-bold mb-6">Step 4: College</h2>
+    <div className="w-full max-w-2xl mx-auto px-4 py-6 bg-white rounded-xl">
+      <h2 className="text-[18px] font-semibold mb-4 text-heading border-b border-b-placeholder pb-3">College</h2>
 
       {/* Search College */}
       <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-800 mb-1">
-          Search College
-        </label>
-        <div className="flex items-center gap-4">
-          <input
-            type="text"
-            placeholder="College name"
-            className="w-full px-3 py-2 border border-gray-300 rounded bg-gray-100 text-gray-700 text-sm"
-            disabled
-          />
-          <button className="text-sm text-blue-600 font-medium">
+        <div className="flex justify-between items-center mb-2">
+          <label className="input-heading">
+            Search College
+          </label>
+          <button className="text-blueish font-medium text-[16px] cursor-pointer">
             + Add All College
           </button>
+        </div>
+        <div className="flex items-center gap-4">
+          <select className="w-full input-box px-3 py-3 text-sm text-placeholder outline-none">
+            <option>College Name</option>
+          </select>
         </div>
       </div>
 
       {/* Date Pickers */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+      <div className="grid grid-cols-2 gap-4 mb-4">
         <div>
-          <label className="block text-sm font-medium text-gray-800 mb-1">
-            Application open on
-          </label>
+          <label className="input-heading">Application opens on</label>
           <input
-            type="text"
-            placeholder="DD/MM/YY"
-            className="w-full px-3 py-2 border border-gray-300 rounded bg-gray-100 text-gray-700 text-sm"
+            type="date"
+            className="w-full mt-1 input-box px-3 py-3 text-sm text-gray-700"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-800 mb-1">
-            Application close on
-          </label>
+          <label className="input-heading">Application opens on</label>
           <input
-            type="text"
-            placeholder="DD/MM/YY"
-            className="w-full px-3 py-2 border border-gray-300 rounded bg-gray-100 text-gray-700 text-sm"
+            type="date"
+            className="w-full mt-1 input-box px-3 py-3 text-sm text-gray-700"
           />
         </div>
       </div>
 
-      {/* Bottom Navigation */}
-      <div className="flex items-center justify-between pt-4 border-t">
-        <button className="text-sm underline text-gray-500 hover:text-gray-700">
+      {/* Next Button */}
+      <div className="flex justify-end gap-4 mt-20">
+        <button
+          onClick={handleDraft}
+          className="px-2 py-2 bg-transparent border-0 text-sidebar underline text-[16px] rounded-[6px] font-bold hover:text-[#8c8c8ccc] transition-all cursor-pointer"
+        >
           Save as Draft
         </button>
-
-        <div className="flex gap-3">
-          <button
-            onClick={() => router.push("/posting/preferences")}
-            className="px-6 py-2 border border-gray-300 rounded text-sm text-gray-800"
-          >
-            Back
-          </button>
-          <button
-            onClick={() => router.push("/posting/preview")}
-            className="px-6 py-2 bg-blue-600 text-white rounded text-sm"
-          >
-            Next
-          </button>
-        </div>
+        <button
+          onClick={() => router.push("/posting/preferences")}
+          className="px-15 py-2 bg-transparent border-2 border-sidebar text-sidebar text-[16px] rounded-[6px] font-bold hover:bg-[#f9f9f9cc] transition-all cursor-pointer"
+        >
+          Back
+        </button>
+        <button
+          onClick={() => router.push("/posting/preview")}
+          className="px-15 py-2 bg-blueish text-secondary text-[16px] rounded-[6px] font-bold hover:bg-[#0000cc] transition-all cursor-pointer"
+        >
+          Next
+        </button>
       </div>
     </div>
   );

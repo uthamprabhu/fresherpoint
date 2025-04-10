@@ -13,101 +13,89 @@ const DetailsStep = () => {
     setCtc(newValue);
   };
 
+  const handleDraft = () => {
+    alert('Draft saved successfully!')
+  }
+
   return (
     <div className="w-full max-w-2xl mx-auto px-4 py-6 bg-white rounded-xl">
-      <h2 className="text-lg font-semibold mb-4">Details</h2>
+      <h2 className="text-[18px] font-semibold mb-4 text-heading border-b border-b-placeholder pb-3">Details</h2>
 
       {/* Job Overview */}
       <div className="mb-4">
-        <label className="block text-sm mb-1 font-medium">Job Overview</label>
+        <label className="block mb-1 input-heading">Job Overview</label>
         <textarea
           placeholder="Description"
-          className="w-full p-3 border rounded-md resize-none text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          rows={3}
+          className="w-full p-3 input-box resize-none text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          rows={4}
         />
       </div>
 
       {/* Compose */}
       <div className="mb-4">
-        <label className="block text-sm mb-1 font-medium">Compose</label>
+        <label className="block mb-1 input-heading">Compose</label>
         <textarea
           placeholder="Description"
-          className="w-full p-3 border rounded-md resize-none text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full p-3 input-box resize-none text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           rows={4}
         />
       </div>
 
       {/* Skills */}
       <div className="mb-4">
-        <label className="block text-sm mb-1 font-medium">Skills</label>
+        <label className="block mb-1 input-heading">Skills</label>
         <input
           type="text"
           placeholder="Search Skills"
-          className="w-full p-3 border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full p-3 input-box text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 
       {/* Job Roles */}
       <div className="mb-4">
-        <label className="block text-sm mb-1 font-medium">Job roles</label>
+        <label className="block mb-1 input-heading">Job roles</label>
         <input
           type="text"
           placeholder="Job roles"
-          className="w-full p-3 border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full p-3 input-box text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 
       {/* Number of Positions */}
       <div className="mb-4">
-        <label className="block text-sm mb-1 font-medium">Number of position</label>
+        <label className="block mb-1 input-heading">Number of position</label>
         <input
           type="text"
           placeholder="00"
-          className="w-full p-3 border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full p-3 input-box text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 
       {/* Paid or Unpaid */}
       <div className="mb-4">
-        <label className="block text-sm font-medium mb-2">Paid or unpaid?</label>
-        <div className="flex gap-8">
-          <label className="flex items-center gap-2">
-            <input
-              type="radio"
-              name="payment"
-              value="Paid"
-              checked={paymentType === "Paid"}
-              onChange={() => setPaymentType("Paid")}
-              className="accent-blue-600"
-            />
-            <span className="text-sm">Paid</span>
+        <label className="block input-heading mb-2">Paid or unpaid?</label>
+        <div className="flex justify-between mr-10">
+          <label className="flex items-center gap-2 font-normal text-[18px] text-heading">
+            <input type="radio" name="contact" className="accent-blueish w-5 h-5 border-blueish" />
+            Name only
           </label>
-          <label className="flex items-center gap-2">
-            <input
-              type="radio"
-              name="payment"
-              value="Unpaid"
-              checked={paymentType === "Unpaid"}
-              onChange={() => setPaymentType("Unpaid")}
-              className="accent-blue-600"
-            />
-            <span className="text-sm">Unpaid</span>
+          <label className="flex items-center gap-2 font-normal text-[18px] text-heading">
+            <input type="radio" name="contact" className="accent-blueish w-5 h-5 border-blueish" />
+            Don't show
           </label>
         </div>
       </div>
 
       {/* CTC Range */}
       <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">CTC</label>
-        <div className="flex justify-between text-xs text-blue-700 font-medium mb-1">
-          <span>₹{ctc[0]} Lpa</span>
-          <span>₹{ctc[1]} Lpa</span>
-        </div>
+        <label className="block input-heading mb-1">CTC
+          <span className="font-medium text-[14px] text-blueish ml-2">₹{ctc[0]} - {ctc[1]} Lpa</span>
+        </label>
         <Slider
           value={ctc}
           onChange={handleCtcChange}
           min={0}
-          max={40}
+          max={100}
           step={1}
           valueLabelDisplay="off"
           sx={{
@@ -123,25 +111,41 @@ const DetailsStep = () => {
 
       {/* Job Location */}
       <div className="mb-6">
-        <label className="block text-sm mb-1 font-medium">Job location</label>
+        <label className="block input-heading mb-1">Job location</label>
         <input
           type="text"
           placeholder="Search location"
-          className="w-full p-3 border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full p-3 input-box text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      {/* Job Location */}
+      <div className="mb-6">
+        <label className="block input-heading mb-1">Interactive JD</label>
+        <input
+          type="text"
+          placeholder="Upload Image or Video"
+          className="w-full p-3 input-box text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 
       {/* Next Button */}
-      <div className="w-full flex gap-4 justify-end">
+      <div className="flex justify-end gap-4 mt-20">
+        <button
+          onClick={handleDraft}
+          className="px-2 py-2 bg-transparent border-0 text-sidebar underline text-[16px] rounded-[6px] font-bold hover:text-[#8c8c8ccc] transition-all cursor-pointer"
+        >
+          Save as Draft
+        </button>
         <button
           onClick={() => router.push("/posting/basic")}
-          className="bg-gray-100 border border-gray-300 text-gray-800 px-4 py-2 rounded text-sm"
+          className="px-15 py-2 bg-transparent border-2 border-sidebar text-sidebar text-[16px] rounded-[6px] font-bold hover:bg-[#f9f9f9cc] transition-all cursor-pointer"
         >
           Back
         </button>
         <button
           onClick={() => router.push("/posting/preferences")}
-          className="px-8 py-3 bg-[#1A1AFF] text-white rounded-lg font-semibold hover:bg-[#0000cc] transition-all"
+          className="px-15 py-2 bg-blueish text-secondary text-[16px] rounded-[6px] font-bold hover:bg-[#0000cc] transition-all cursor-pointer"
         >
           Next
         </button>

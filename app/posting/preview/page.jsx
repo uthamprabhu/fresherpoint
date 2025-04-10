@@ -6,13 +6,18 @@ export default function JobPreview() {
 
   const handleSuccess = () => {
     alert('Job posted successfully!!!')
-    router.push('/')
+    router.push('/posting')
+  }
+
+  const handleDraft = () => {
+    alert('Draft saved successfully!')
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow">
+    <div className="w-full max-w-3xl mx-auto px-4 py-6 bg-white rounded-xl">
+
       {/* Header */}
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-4 pb-3">
         <div>
           <h2 className="text-2xl font-semibold">Google</h2>
           <p className="text-lg font-medium text-gray-800">UI/UX Designer</p>
@@ -25,9 +30,9 @@ export default function JobPreview() {
       </div>
 
       {/* Basic Info & Overview */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-b py-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-t-placeholder border-b border-b-placeholder py-4 mb-6">
         {/* Basic Info */}
-        <div className="text-sm space-y-2">
+        <div className="text-sm space-y-2 border-r border-r-placeholder">
           <p><strong>💰 CTC</strong>: ₹16 - 27 Lpa</p>
           <p><strong>🧑‍💻 Experience</strong>: Fresher</p>
           <p><strong>🏢 Workplace</strong>: WFO</p>
@@ -99,25 +104,26 @@ export default function JobPreview() {
         </ol>
       </div>
 
-      <div className="flex items-center justify-between pt-4 border-t">
-        <button className="text-sm underline text-gray-500 hover:text-gray-700">
+      {/* Next Button */}
+      <div className="flex justify-end gap-4 mt-20">
+        <button
+          onClick={handleDraft}
+          className="px-2 py-2 bg-transparent border-0 text-sidebar underline text-[16px] rounded-[6px] font-bold hover:text-[#8c8c8ccc] transition-all cursor-pointer"
+        >
           Save as Draft
         </button>
-
-        <div className="flex gap-3">
-          <button
-            onClick={() => router.push("/posting/college")}
-            className="px-6 py-2 border border-gray-300 rounded text-sm text-gray-800"
-          >
-            Back
-          </button>
-          <button
-            onClick={handleSuccess}
-            className="px-6 py-2 bg-blue-600 text-white rounded text-sm"
-          >
-            Submit
-          </button>
-        </div>
+        <button
+          onClick={() => router.push("/posting/college")}
+          className="px-15 py-2 bg-transparent border-2 border-sidebar text-sidebar text-[16px] rounded-[6px] font-bold hover:bg-[#f9f9f9cc] transition-all cursor-pointer"
+        >
+          Back
+        </button>
+        <button
+          onClick={handleSuccess}
+          className="px-15 py-2 bg-blueish text-secondary text-[16px] rounded-[6px] font-bold hover:bg-[#0000cc] transition-all cursor-pointer"
+        >
+          Post
+        </button>
       </div>
     </div>
   );
