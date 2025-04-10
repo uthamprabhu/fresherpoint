@@ -6,26 +6,28 @@ import { Plus, Minus } from "lucide-react";
 export default function BasicStep() {
   const router = useRouter();
 
-  
-  
+  const handleDraft = () => {
+    alert('Draft saved successfully!')
+  }
+
   // experience
   const [fresherOrExp, setFresherOrExp] = useState('');
   const [experience, setExperience] = useState(0);
-  
+
   const incrementExperience = () => {
     setExperience((prev) => prev + 1);
   };
-  
+
   const decrementExperience = () => {
     setExperience((prev) => prev - 1)
   }
-  
+
   const formatExperience = () => {
     const years = Math.floor(experience / 12);
     const months = experience % 12;
     return `${years}.${months}`;
   };
-  
+
   const [selectedType, setSelectedType] = useState('');
   const [employmentType, setEmploymentType] = useState('')
   const [workPlace, setWorkPlace] = useState('');
@@ -158,8 +160,8 @@ export default function BasicStep() {
                 type="button"
                 onClick={() => setWorkPlace(type)}
                 className={`border rounded-lg py-2 transition-colors ${workPlace === type
-                    ? 'bg-blue-600 text-white border-blue-600'
-                    : 'border-[#e5e5e5] text-gray-500'
+                  ? 'bg-blue-600 text-white border-blue-600'
+                  : 'border-[#e5e5e5] text-gray-500'
                   }`}
               >
                 {type}
@@ -186,7 +188,13 @@ export default function BasicStep() {
         </div>
 
         {/* Next Button */}
-        <div className="flex justify-end mt-20">
+        <div className="flex justify-end gap-2 mt-20">
+          <button
+            onClick={handleDraft}
+            className="px-2 py-2 bg-transparent border-0 text-sidebar underline text-[16px] rounded-[6px] font-bold hover:text-[#8c8c8ccc] transition-all cursor-pointer"
+          >
+            Save as Draft
+          </button>
           <button
             onClick={() => router.push("/posting/details")}
             className="px-15 py-2 bg-blueish text-secondary text-[16px] rounded-[6px] font-bold hover:bg-[#0000cc] transition-all cursor-pointer"
