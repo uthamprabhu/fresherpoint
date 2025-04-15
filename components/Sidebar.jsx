@@ -111,49 +111,11 @@ const Sidebar = () => {
                     )}
                 </div>
 
-                <div className="flex gap-2 p-3 w-full hover:bg-[#f2f2f2] rounded-2xl cursor-pointer">
-                    <Image
-                        src="/events.png"
-                        width={24}
-                        height={24}
-                        alt="events"
-                        title="events"
-                    />
-                    <span className="text-sidebar font-semibold text-[16px]">Events</span>
-                </div>
+                <SidebarLink href="/events" icon="/events.png" label="events" />
+                <SidebarLink href="/network" icon="/network.png" label="network" />
+                <SidebarLink href="/analytics" icon="/analytics.png" label="analytics" />
+                <SidebarLink href="/survey" icon="/survey.png" label="survey" />
 
-                <div className="flex gap-2 p-3 w-full hover:bg-[#f2f2f2] rounded-2xl cursor-pointer">
-                    <Image
-                        src="/network.png"
-                        width={24}
-                        height={24}
-                        alt="network"
-                        title="network"
-                    />
-                    <span className="text-sidebar font-semibold text-[16px]">Network</span>
-                </div>
-
-                <div className="flex gap-2 p-3 w-full hover:bg-[#f2f2f2] rounded-2xl cursor-pointer">
-                    <Image
-                        src="/analytics.png"
-                        width={24}
-                        height={24}
-                        alt="analytics"
-                        title="analytics"
-                    />
-                    <span className="text-sidebar font-semibold text-[16px]">Analytics</span>
-                </div>
-
-                <div className="flex gap-2 p-3 w-full hover:bg-[#f2f2f2] rounded-2xl cursor-pointer">
-                    <Image
-                        src="/survey.png"
-                        width={24}
-                        height={24}
-                        alt="survey"
-                        title="survey"
-                    />
-                    <span className="text-sidebar font-semibold text-[16px]">Survey</span>
-                </div>
             </nav>
         </aside>
     )
